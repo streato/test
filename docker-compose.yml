@@ -1,12 +1,10 @@
 # This is NOT recommended to be used for a production deployment. It aims to quickly get an evaluation version of sofie running and serve as a basis for how to setup a production deployment
 version: "3.3"
 services:
-
   db:
     hostname: mongo
     image: mongo:4.2.14
     restart: always
-
     ports:
       - "3001:27017" # Expose mongo on the same port as dev meteor does
     volumes:
@@ -40,7 +38,7 @@ services:
     depends_on:
       - core
 
-   spreadsheet-gateway:
+  spreadsheet-gateway:
      image: superflytv/sofie-spreadsheet-gateway:release33
      restart: always
      command: yarn start -host core -port 3000
